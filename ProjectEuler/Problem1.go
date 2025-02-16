@@ -1,9 +1,11 @@
-package projecteuler
+package main
 
-func sum_of_all_multiples_below(n int) s int {
-	s += n
-	return
+func answer(n int) int {
+	for k := 1; k <= n; k++ {
+
+	}
 }
+
 func main() {
-	a 
+
 }
