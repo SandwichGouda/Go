@@ -2,32 +2,13 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
+	"math"
 )
 
-// func Sqrt(x float64) float64 {
-// 	z := 1.0
-// 	for k := 0; k <= 1000; k++ {
-// 		z -= (z*z - x) / (2 * z)
-// 	}
-// 	return z
-// }
-
-type ErrNegativeSqrt float64
-
-func (e ErrNegativeSqrt) Error() string {
-	if e < 0 {
-		return strings.Join([]string{"cannot Sqrt negative number:}", strconv.Itoa(-2)}, " ")
-	} else {
-		return ""
-	}
-}
-
-func Sqrt(x float64) (float64, error) {
-	error := x.Error()
-}
-
 func main() {
-	fmt.Println(Sqrt(2))
+	x := 1.
+	for k := 0; x > 0; k++ {
+		x = math.Pow(math.E, float64(-k))
+		fmt.Println(k, x)
+	}
 }
