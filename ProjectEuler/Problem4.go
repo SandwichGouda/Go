@@ -56,11 +56,11 @@ func LargestPalindrome(n uint) (m uint) {
 	return
 }
 
-func Reverse(s []uint) []uint {
+func Reverse[T any](s []T) []T {
 
 	l := len(s)
 
-	r := make([]uint, l, l)
+	r := make([]T, l, l)
 
 	for k := 0; k < l; k++ {
 		r[l-k-1] = s[k]
