@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func Pow(x int, n uint) int {
+func Pow(x uint, n uint) uint {
 	if n == 0 {
 		return 1
 	}
@@ -19,7 +19,7 @@ func NbDigits(n uint) uint {
 	digits := uint(math.Log10(float64(n))) + 1
 
 	// Special case if n is a power of 10
-	if int(n) == Pow(10, digits-1) {
+	if n == Pow(10, digits-1) {
 		return digits - 1
 	}
 	return digits
