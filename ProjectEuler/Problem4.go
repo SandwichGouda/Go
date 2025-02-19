@@ -31,7 +31,7 @@ func Mirror(n uint) uint {
 
 	for i := uint(0); i <= nb-1; i++ {
 		d = n % 10
-		m += uint(Pow(10, nb-1-i)) * d
+		m += Pow(10, nb-1-i) * d
 		n = (n - d) / 10
 	}
 
@@ -44,8 +44,8 @@ func IsPalindrome(n uint) bool {
 
 func LargestPalindrome(n uint) (m uint) {
 
-	for a := uint(Pow(10, n-1)); a < uint(Pow(10, n)); a++ {
-		for b := uint(Pow(10, n-1)); b < uint(Pow(10, n)); b++ {
+	for a := Pow(10, n-1); a < Pow(10, n); a++ {
+		for b := Pow(10, n-1); b < Pow(10, n); b++ {
 			if a*b > m {
 				if IsPalindrome(a * b) {
 					m = a * b
@@ -98,8 +98,8 @@ func IsPalindrome2(n uint) (b bool) {
 
 func LargestPalindrome2(n uint) (m uint) {
 
-	for a := uint(Pow(10, n-1)); a < uint(Pow(10, n)); a++ {
-		for b := uint(Pow(10, n-1)); b < uint(Pow(10, n)); b++ {
+	for a := Pow(10, n-1); a < Pow(10, n); a++ {
+		for b := Pow(10, n-1); b < Pow(10, n); b++ {
 			if a*b > m {
 				if IsPalindrome2(a * b) {
 					m = a * b
