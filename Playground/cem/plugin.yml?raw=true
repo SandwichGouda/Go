@@ -1,0 +1,6 @@
+name: fnafy
+version: 1.0
+authors: [XxGoldenbluexX,Hyez]
+main: fr.nekotine.fnafy.FnafYMain
+api-version: 1.16
+depend: [ProtocolLib,CommandAPI]

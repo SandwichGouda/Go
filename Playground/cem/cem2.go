@@ -1,12 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"log"
 	"os/exec"
-	"reflect"
 	"time"
 )
 
@@ -45,53 +41,27 @@ func main() {
 	// JSON PART
 
 	// Read JSON file
-	var data []byte
-	var err error
-	data, err = ioutil.ReadFile("mots2.json")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	// Define a variable to hold the JSON data
-	var jsonArray []map[string]interface{}
-
-	// Unmarshal JSON into the slice
-	err = json.Unmarshal(data, &jsonArray)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	var curl, link, origin, data_option string
-	var cmd *exec.Cmd
-	var stdout []byte
+	// var data []byte
 
 	// Iterate over the array
-	for i, item := range jsonArray {
-		fmt.Println(i, item["label"], reflect.TypeOf(item["label"]))
 
-		curl = "curl"
-		link = "'https://cemantix.certitudes.org/score?n=1087'"
-		origin = "-H 'origin: https://cemantix.certitudes.org'"
-		data_option = "--data-raw 'word=négatif'"
+	// fmt.Println(i, item["label"], reflect.TypeOf(item["label"]))
 
-		// tail := "tail"
-		// cem := "cem.go"
-		// opt := "-n 3"
+	curl := "curl"
+	link := "'https://cemantix.certitudes.org/score?n=1087'"
+	origin := "-H 'origin: https://cemantix.certitudes.org'"
+	data_option := "--data-raw 'word=négatif'"
 
-		// cmd := exec.Command(tail, cem, opt)
-		// stdout, err := cmd.Output()
+	cmd := exec.Command(curl, origin, link, data_option)
+	stdout, err := cmd.Output()
 
-		cmd = exec.Command(curl, origin, link, data_option)
-		stdout, err = cmd.Output()
-
-		if err != nil {
-			fmt.Println(err.Error())
-			fmt.Println("lala")
-			return
-		}
-
-		time.Sleep(1000 * time.Millisecond)
+	if err != nil {
+		fmt.Println(err.Error())
+		fmt.Println("lala")
+		return
 	}
+
+	time.Sleep(1000 * time.Millisecond)
 
 	// Print the output
 	fmt.Println(string(stdout))
