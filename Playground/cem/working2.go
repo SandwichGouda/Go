@@ -25,8 +25,8 @@ func main() {
 	if err := json.NewDecoder(stdout).Decode(&word); err != nil {
 		log.Fatal(err)
 	}
-	// if err := cmd.Wait(); err != nil {
-	// 	log.Fatal(err)
-	// }
+	if err := cmd.Wait(); err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(word.Class, word.Frequency, word.Label)
 }
